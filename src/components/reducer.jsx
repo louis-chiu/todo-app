@@ -13,6 +13,10 @@ const reducer = (state, action) => {
     const { todoList } = state;
     return { ...state, todoList: [...todoList, todo] };
   } else if (action.type === REMOVE_TODO) {
+    const { id } = action.payload;
+    const { todoList } = state;
+
+    return { ...state, todoList: todoList.filter((todo) => todo.id !== id) };
   } else if (action.type === TOGGLE_IS_DONE) {
     const { id } = action.payload;
     const { todoList } = state;
@@ -26,6 +30,15 @@ const reducer = (state, action) => {
       }),
     };
   } else if (action.type === SET_PROGRESS) {
+    const { todoList } = state;
+
+    if (!todoList.length) return { ...state, progress: 0 };
+
+    const isDoneLength = todoList.filter((todo) => todo.isDone).length;
+    return {
+      ...state,
+      progress: Math.floor((isDoneLength / todoList.length) * 100),
+    };
   } else if (action.type === SORT_TODO_LIST) {
   } else if (action.type === INITIALIZE_TODO_LIST) {
     return { ...action.payload };

@@ -1,7 +1,7 @@
 import { FaXmark } from 'react-icons/fa6';
 import { useGlobalContext } from './context';
 const TodoItem = ({ id, text, isDone }) => {
-  const { toggleIsDone } = useGlobalContext();
+  const { toggleIsDone, removeTodo } = useGlobalContext();
   return (
     <div className='relative w-full h-12 flex items-center my-2 bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
       {/* hidden original checkbox*/}
@@ -32,6 +32,7 @@ const TodoItem = ({ id, text, isDone }) => {
       <label
         htmlFor={id}
         className='w-[calc(100%-2rem-1.25rem-3rem)] hover:cursor-pointer text-md select-none'
+        style={{ textDecorationLine: isDone ? 'line-through' : 'none' }}
       >
         {text}
       </label>
@@ -50,7 +51,10 @@ const TodoItem = ({ id, text, isDone }) => {
         <polyline points='20 6 9 17 4 12'></polyline>
       </svg>
 
-      <button className='w-12 h-full flex items-center justify-center text-lg font-bold text-primary-400 hover:text-primary-900'>
+      <button
+        className='w-12 h-full flex items-center justify-center text-lg font-bold text-primary-400 hover:text-primary-900'
+        onClick={() => removeTodo(id)}
+      >
         <FaXmark />
       </button>
     </div>
