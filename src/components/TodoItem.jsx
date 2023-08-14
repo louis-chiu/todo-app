@@ -1,7 +1,7 @@
 import { FaXmark } from 'react-icons/fa6';
 const TodoItem = () => {
   return (
-    <div className='relative w-full h-12 flex items-center bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
+    <div className='relative w-full h-12 flex items-center my-2 bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
       <input
         type='checkbox'
         name='todo'
