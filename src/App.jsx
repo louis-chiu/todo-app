@@ -1,3 +1,4 @@
+import InputBar from './components/InputBar';
 import ProgressBar from './components/ProgressBar';
 import TodoList from './components/TodoList';
 import ToggleButton from './components/ToggleButton';
@@ -11,15 +12,17 @@ function App() {
           Add things to do
         </p>
       </header>
-      
+
       <hr className='mx-8 border-primary-900 border-opacity-70 border-[1.5px] rounded-sm my-2' />
 
       <ProgressBar />
       <TodoList />
-      
+
       <hr className='mx-8 border-primary-900 border-opacity-70 border-[1.5px] rounded-sm my-2' />
-      
+
       <ToggleButton />
+
+      <InputBar />
     </main>
   );
 }
