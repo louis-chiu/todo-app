@@ -10,6 +10,8 @@
   justify-content: center;
 }
 
+/* custom scroll bar */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
