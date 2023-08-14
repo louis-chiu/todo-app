@@ -4,6 +4,7 @@ import {
   TOGGLE_IS_DONE,
   SET_PROGRESS,
   SORT_TODO_LIST,
+  INITIALIZE_TODO_LIST,
 } from './action';
 
 const reducer = (state, action) => {
@@ -16,18 +17,22 @@ const reducer = (state, action) => {
     const { id } = action.payload;
     const { todoList } = state;
     const newTodoList = [...todoList];
+
     return {
       ...state,
-      todoList: newTodoList.map((todo) => {
+      todoList: newTodoList?.map((todo) => {
         if (todo.id !== id) return todo;
         if (todo.id === id) return { ...todo, isDone: !todo.isDone };
       }),
     };
   } else if (action.type === SET_PROGRESS) {
   } else if (action.type === SORT_TODO_LIST) {
+  } else if (action.type === INITIALIZE_TODO_LIST) {
+    return { ...action.payload };
   } else {
     throw new Error(`not existed action type: ${action.type}`);
   }
+  console.log(state);
 };
 
 export default reducer;
