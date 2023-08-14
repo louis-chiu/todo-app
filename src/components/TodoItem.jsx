@@ -1,15 +1,19 @@
 import { FaXmark } from 'react-icons/fa6';
-const TodoItem = () => {
+import { useGlobalContext } from './context';
+const TodoItem = ({ id, text, isDone }) => {
+  const { toggleIsDone } = useGlobalContext();
   return (
     <div className='relative w-full h-12 flex items-center my-2 bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
       {/* hidden original checkbox*/}
       <input
         type='checkbox'
         name='todo'
-        id='todo1'
+        id={id}
+        checked={isDone}
+        onChange={() => toggleIsDone(id)}
         className='
           peer 
-          appearance-none 
+          appearance-none  
           mx-4
           w-5
           h-5 
@@ -26,10 +30,10 @@ const TodoItem = () => {
       />
 
       <label
-        htmlFor='todo1'
+        htmlFor={id}
         className='w-[calc(100%-2rem-1.25rem-3rem)] hover:cursor-pointer text-md select-none'
       >
-        Lebel
+        {text}
       </label>
 
       {/* custom checkbox */}
@@ -39,9 +43,9 @@ const TodoItem = () => {
         viewBox='0 0 24 24'
         fill='none'
         stroke='white'
-        stroke-width='4'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='4'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       >
         <polyline points='20 6 9 17 4 12'></polyline>
       </svg>
