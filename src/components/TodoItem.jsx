@@ -1,7 +1,7 @@
 import { FaXmark } from 'react-icons/fa6';
 const TodoItem = () => {
   return (
-    <div className='relative w-full h-12 flex items-center mb-2 bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
+    <div className='relative w-full h-12 flex items-center bg-primary-100 rounded-md before:block before:w-1 before:h-full before:rounded-s-md before:bg-primary-800'>
       <input
         type='checkbox'
         name='todo'
@@ -46,7 +46,7 @@ const TodoItem = () => {
         <polyline points='20 6 9 17 4 12'></polyline>
       </svg>
 
-      <button className='w-12 h-full flex items-center justify-center text-lg font-bold text-primary-400'>
+      <button className='w-12 h-full flex items-center justify-center text-lg font-bold text-primary-400 hover:text-primary-900'>
         <FaXmark />
       </button>
     </div>
