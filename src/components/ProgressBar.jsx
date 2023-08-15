@@ -7,7 +7,7 @@ const ProgressBar = () => {
       <p className='text-l w-12'>{progress}%</p>
       <div className='h-4 w-[calc(100%-3rem)] bg-primary-100 rounded-full overflow-hidden'>
         <div
-          className={` bg-primary-600 rounded-full h-full w-1/2 transition-[width] delay-150 duration-1000 `}
+          className={` bg-primary-600 rounded-full h-full w-1/2 transition-[width]  duration-[2000ms] `}
           style={{ width: `${progress}%` }}
         ></div>
       </div>
