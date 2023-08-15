@@ -1,8 +1,11 @@
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useGlobalContext } from './context';
 import { nanoid } from 'nanoid';
+import { useRef } from 'react';
 const InputBar = () => {
+  const inputRef = useRef();
   const { addTodo } = useGlobalContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -11,7 +14,9 @@ const InputBar = () => {
       id: nanoid(),
       text,
       isDone: false,
+      timestamp: Date.now(),
     });
+    inputRef.current.value = '';
   };
   return (
     <form
@@ -31,6 +36,7 @@ const InputBar = () => {
           id='todo'
           className='h-10 w-[calc(100%-3.25rem)] text-md rounded-sm pl-2 focus:outline-primary-800'
           required
+          ref={inputRef}
         />
         <button
           type='submit'
