@@ -11,21 +11,21 @@ const ToggleButton = () => {
         type='checkbox'
         name='sort'
         id='sort'
-        className=' hidden'
+        className='hidden'
         checked={isSortedByIsDone}
         onChange={sortTodoList}
       />
       <label
         htmlFor='sort'
-        className={`block h-5 w-10 px-1 bg-primary-${
-          isSortedByIsDone ? 500 : 100
+        className={`relative block h-5 w-10 px-1 ${
+          isSortedByIsDone ? 'bg-primary-500' : 'bg-primary-100'
         }  rounded-full flex items-center cursor-pointer`}
       >
         <div
-          className={`h-4 w-4 bg-primary-${
-            isSortedByIsDone ? 100 : 500
-          } rounded-full relative transition-[left] duration-300 left-${
-            isSortedByIsDone ? 4 : 0
+          className={`h-4 w-4 ${
+            isSortedByIsDone ? 'bg-primary-100' : 'bg-primary-500'
+          } rounded-full relative transition-[left] duration-300 ${
+            isSortedByIsDone ? 'left-4' : 'left-0'
           }`}
         ></div>
       </label>

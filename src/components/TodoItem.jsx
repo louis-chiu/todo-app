@@ -31,8 +31,9 @@ const TodoItem = ({ id, text, isDone }) => {
 
       <label
         htmlFor={id}
-        className='w-[calc(100%-2rem-1.25rem-3rem)] hover:cursor-pointer text-md select-none'
-        style={{ textDecorationLine: isDone ? 'line-through' : 'none' }}
+        className={`w-[calc(100%-2rem-1.25rem-3rem)] hover:cursor-pointer text-md select-none ${
+          isDone ? 'line-through' : 'no-underline'
+        }`}
       >
         {text}
       </label>

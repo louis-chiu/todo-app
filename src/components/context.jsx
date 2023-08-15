@@ -37,6 +37,7 @@ export const ContextProvider = ({ children }) => {
     }, 10);
     dispatch({ type: SORT_TODO_LIST });
   };
+  
   const removeTodo = (id) => {
     dispatch({ type: REMOVE_TODO, payload: { id } });
     dispatch({ type: SET_PROGRESS });
